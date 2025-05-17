@@ -1,0 +1,203 @@
+<!--
+    Calcunox Pro - Ultimate Engineering Calculator
+    Copyright (c) 2025 Calcunox Team
+    Created by: Priyanshu Aryan Panda
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcunox Pro</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300f3ff'/><rect x='20' y='20' width='60' height='60' rx='10' fill='white'/><rect x='30' y='30' width='40' height='15' rx='4' fill='%2300f3ff'/><rect x='30' y='50' width='10' height='10' rx='2' fill='%2300f3ff'/><rect x='45' y='50' width='10' height='10' rx='2' fill='%2300f3ff'/><rect x='60' y='50' width='10' height='10' rx='2' fill='%2300f3ff'/></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="calculator-container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-calculator"></i> Calcunox Pro
+            </div>
+            <div class="creator">by Priyanshu Aryan Panda</div>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab active" data-view="basic">Basic</button>
+            <button class="tab" data-view="scientific">Scientific</button>
+            <button class="tab" data-view="engineering">Engineering</button>
+            <button class="tab" data-view="converter">Converter</button>
+        </nav>
+
+        <!-- Basic Calculator -->
+        <div class="calculator-view active" data-view="basic">
+            <div class="display">
+                <div class="history"></div>
+                <input type="text" class="current-input" value="0" readonly>
+            </div>
+            <div class="buttons-grid">
+                <button class="btn-special" data-action="clear">C</button>
+                <button class="btn-operator" data-action="backspace">⌫</button>
+                <button class="btn-operator" data-action="percent">%</button>
+                <button class="btn-operator" data-action="/">÷</button>
+                <button class="btn-number" data-number="7">7</button>
+                <button class="btn-number" data-number="8">8</button>
+                <button class="btn-number" data-number="9">9</button>
+                <button class="btn-operator" data-action="*">×</button>
+                <button class="btn-number" data-number="4">4</button>
+                <button class="btn-number" data-number="5">5</button>
+                <button class="btn-number" data-number="6">6</button>
+                <button class="btn-operator" data-action="-">-</button>
+                <button class="btn-number" data-number="1">1</button>
+                <button class="btn-number" data-number="2">2</button>
+                <button class="btn-number" data-number="3">3</button>
+                <button class="btn-operator" data-action="+">+</button>
+                <button class="btn-number" data-action="±">±</button>
+                <button class="btn-number" data-number="0">0</button>
+                <button class="btn-number" data-action=".">.</button>
+                <button class="btn-operator equals" data-action="=">=</button>
+            </div>
+        </div>
+
+        <!-- Scientific Calculator -->
+        <div class="calculator-view" data-view="scientific">
+            <div class="display">
+                <div class="history"></div>
+                <input type="text" class="current-input" value="0" readonly>
+            </div>
+            <div class="buttons-grid numbers">
+                <button class="btn-number" data-number="7">7</button>
+                <button class="btn-number" data-number="8">8</button>
+                <button class="btn-number" data-number="9">9</button>
+                <button class="btn-operator" data-action="backspace">⌫</button>
+                <button class="btn-number" data-number="4">4</button>
+                <button class="btn-number" data-number="5">5</button>
+                <button class="btn-number" data-number="6">6</button>
+                <button class="btn-number" data-action="±">±</button>
+                <button class="btn-number" data-number="1">1</button>
+                <button class="btn-number" data-number="2">2</button>
+                <button class="btn-number" data-number="3">3</button>
+                <button class="btn-number" data-action=".">.</button>
+                <button class="btn-number" data-number="0">0</button>
+            </div>
+            <div class="buttons-grid">
+                <button class="btn-scientific" data-action="sin">sin</button>
+                <button class="btn-scientific" data-action="cos">cos</button>
+                <button class="btn-scientific" data-action="tan">tan</button>
+                <button class="btn-scientific" data-action="log">log</button>
+                <button class="btn-scientific" data-action="ln">ln</button>
+                <button class="btn-scientific" data-action="sqrt">√</button>
+                <button class="btn-scientific" data-action="pi">π</button>
+                <button class="btn-scientific" data-action="e">e</button>
+                <button class="btn-scientific" data-action="^">xʸ</button>
+                <button class="btn-scientific" data-action="!">x!</button>
+                <button class="btn-scientific" data-action="rad">Rad</button>
+                <button class="btn-scientific" data-action="deg">Deg</button>
+                <button class="btn-special" data-action="clear">C</button>
+                <button class="btn-operator equals" data-action="=">=</button>
+            </div>
+        </div>
+
+        <!-- Engineering Calculator -->
+        <div class="calculator-view" data-view="engineering">
+            <div class="display">
+                <div class="history"></div>
+                <input type="text" class="current-input" value="0" readonly>
+            </div>
+            <div class="buttons-grid numbers">
+                <button class="btn-number" data-number="7">7</button>
+                <button class="btn-number" data-number="8">8</button>
+                <button class="btn-number" data-number="9">9</button>
+                <button class="btn-operator" data-action="backspace">⌫</button>
+                <button class="btn-number" data-number="4">4</button>
+                <button class="btn-number" data-number="5">5</button>
+                <button class="btn-number" data-number="6">6</button>
+                <button class="btn-number" data-action="±">±</button>
+                <button class="btn-number" data-number="1">1</button>
+                <button class="btn-number" data-number="2">2</button>
+                <button class="btn-number" data-number="3">3</button>
+                <button class="btn-number" data-action=".">.</button>
+                <button class="btn-number" data-number="0">0</button>
+            </div>
+            <div class="buttons-grid">
+                <button class="btn-eng" data-action="sin">sin</button>
+                <button class="btn-eng" data-action="cos">cos</button>
+                <button class="btn-eng" data-action="tan">tan</button>
+                <button class="btn-eng" data-action="hyp">hyp</button>
+                <button class="btn-eng" data-action="mod">mod</button>
+                <button class="btn-eng" data-action="log">log</button>
+                <button class="btn-eng" data-action="ln">ln</button>
+                <button class="btn-eng" data-action="sqrt">√</button>
+                <button class="btn-eng" data-action="^">xʸ</button>
+                <button class="btn-eng" data-action="!">n!</button>
+                <button class="btn-eng" data-action="pi">π</button>
+                <button class="btn-eng" data-action="e">e</button>
+                <button class="btn-eng" data-action="(">(</button>
+                <button class="btn-eng" data-action=")">)</button>
+                <button class="btn-eng" data-action="clr">CLR</button>
+                <button class="btn-eng" data-action="bin">BIN</button>
+                <button class="btn-eng" data-action="oct">OCT</button>
+                <button class="btn-eng" data-action="dec">DEC</button>
+                <button class="btn-eng" data-action="hex">HEX</button>
+                <button class="btn-eng equals" data-action="=">=</button>
+            </div>
+            <div class="number-converter">
+                <div class="converter-row">
+                    <label for="hex-input">HEX:</label>
+                    <input type="text" id="hex-input" class="converter-input">
+                    <button class="btn-convert-small" data-convert="hex">→</button>
+                </div>
+                <div class="converter-row">
+                    <label for="dec-input">DEC:</label>
+                    <input type="text" id="dec-input" class="converter-input">
+                    <button class="btn-convert-small" data-convert="dec">→</button>
+                </div>
+                <div class="converter-row">
+                    <label for="bin-input">BIN:</label>
+                    <input type="text" id="bin-input" class="converter-input">
+                    <button class="btn-convert-small" data-convert="bin">→</button>
+                </div>
+                <div class="converter-row">
+                    <label for="oct-input">OCT:</label>
+                    <input type="text" id="oct-input" class="converter-input">
+                    <button class="btn-convert-small" data-convert="oct">→</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unit Converter -->
+        <div class="calculator-view" data-view="converter">
+            <div class="conversion-types">
+                <select id="conversion-category">
+                    <option value="length">Length</option>
+                    <option value="area">Area</option>
+                    <option value="volume">Volume</option>
+                    <option value="weight">Weight</option>
+                    <option value="temperature">Temperature</option>
+                    <option value="currency">Currency</option>
+                    <option value="time">Time</option>
+                </select>
+            </div>
+            <div class="conversion-interface">
+                <div class="conversion-input">
+                    <input type="number" id="input-value" placeholder="Enter value">
+                    <select id="input-unit"></select>
+                </div>
+                <div class="conversion-output">
+                    <input type="text" id="output-value" readonly>
+                    <select id="output-unit"></select>
+                </div>
+                <button class="btn-convert">Convert</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Calcunox Pro. Created by Priyanshu Aryan Panda.
+    </footer>
+    <script src="app.js"></script>
+    <script src="conversions.js"></script>
+</body>
+
+</html>
