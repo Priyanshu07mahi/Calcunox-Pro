@@ -5,25 +5,40 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcunox Pro</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300f3ff'/><rect x='20' y='20' width='60' height='60' rx='10' fill='white'/><rect x='30' y='30' width='40' height='15' rx='4' fill='%2300f3ff'/><rect x='30' y='50' width='10' height='10' rx='2' fill='%2300f3ff'/><rect x='45' y='50' width='10' height='10' rx='2' fill='%2300f3ff'/><rect x='60' y='50' width='10' height='10' rx='2' fill='%2300f3ff'/></svg>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-    <div class="calculator-container">
-        <header class="header">
-            <div class="logo">
-                <i class="fas fa-calculator"></i> Calcunox Pro
-            </div>
-            <div class="creator">by Priyanshu Aryan Panda</div>
-        </header>
+    <div class="hero">
+        <i class="fas fa-calculator"></i> Calcunox Pro
+        <div class="creator" style="font-size:1.1rem; color:#bc13fe; margin-top:6px;">
+            by Priyanshu Aryan Panda
+        </div>
+    </div>
+    <div class="tagline">
+        The Ultimate Engineering Calculator & Converter
+    </div>
+    <section class="features-section">
+        <h2>What is Calcunox Pro?</h2>
+        <p>
+            Calcunox Pro is a next-generation calculator for engineers, students, and professionals.<br>
+            Switch between Basic, Scientific, Engineering, and Converter modes-all in one app!
+        </p>
+        <ul class="features-list">
+            <li><i class="fas fa-bolt"></i> Lightning-fast calculations</li>
+            <li><i class="fas fa-flask"></i> Scientific & engineering functions</li>
+            <li><i class="fas fa-exchange-alt"></i> Unit & currency converter</li>
+            <li><i class="fas fa-microchip"></i> Base conversions (BIN/OCT/DEC/HEX)</li>
+            <li><i class="fas fa-mobile-alt"></i> Responsive, mobile-friendly UI</li>
+        </ul>
+    </section>
 
+    <div class="calculator-container">
         <nav class="tabs">
             <button class="tab active" data-view="basic">Basic</button>
             <button class="tab" data-view="scientific">Scientific</button>
@@ -41,7 +56,7 @@
                 <button class="btn-special" data-action="clear">C</button>
                 <button class="btn-operator" data-action="backspace">⌫</button>
                 <button class="btn-operator" data-action="percent">%</button>
-                <button class="btn-operator" data-action="/">÷</button>
+                <button class="btn-operator" data-action="+">+</button>
                 <button class="btn-number" data-number="7">7</button>
                 <button class="btn-number" data-number="8">8</button>
                 <button class="btn-number" data-number="9">9</button>
@@ -53,7 +68,7 @@
                 <button class="btn-number" data-number="1">1</button>
                 <button class="btn-number" data-number="2">2</button>
                 <button class="btn-number" data-number="3">3</button>
-                <button class="btn-operator" data-action="+">+</button>
+                <button class="btn-operator" data-action="/">÷</button>
                 <button class="btn-number" data-action="±">±</button>
                 <button class="btn-number" data-number="0">0</button>
                 <button class="btn-number" data-action=".">.</button>
@@ -199,5 +214,4 @@
     <script src="app.js"></script>
     <script src="conversions.js"></script>
 </body>
-
 </html>
