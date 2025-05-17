@@ -5,103 +5,142 @@
     All rights reserved.
 */
 
-:root {
-    --primary-bg: #181c2c;
-    --secondary-bg: #23283a;
-    --accent: #00f3ff;
-    --accent2: #bc13fe;
-    --text: #f8f8f8;
-    --button-bg: #23283a;
-    --button-hover: #2d344c;
-    --operator-bg: #1de9b6;
-    --operator-hover: #00bfae;
-    --special-bg: #ff5252;
-    --special-hover: #ff867f;
-    --border-radius: 16px;
-    --shadow: 0 4px 24px rgba(0, 0, 0, 0.28);
-}
-
-html,
-body {
+/* ========== Background and Global ========== */
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #23283a 0%, #181c2c 100%);
-    color: var(--text);
-    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
     min-height: 100vh;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: linear-gradient(120deg, #181c2c 0%, #23283a 100%);
+    background-size: 200% 200%;
+    animation: bgmove 14s ease-in-out infinite alternate;
+    color: #f8f8f8;
+}
+@keyframes bgmove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
+/* ========== Hero, Tagline, Features ========== */
+.hero {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 8px;
+    color: #00f3ff;
+    text-shadow: 0 0 24px #00f3ff, 0 0 2px #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    animation: neonGlow 2.5s infinite alternate;
+}
+@keyframes neonGlow {
+    from { text-shadow: 0 0 10px #00f3ff, 0 0 2px #fff;}
+    to { text-shadow: 0 0 24px #bc13fe, 0 0 10px #00f3ff;}
+}
+.creator {
+    font-size: 1.1rem;
+    color: #bc13fe;
+    margin-top: 6px;
+    text-shadow: 0 0 8px #bc13fe;
+    letter-spacing: 1px;
+}
+.tagline {
+    text-align: center;
+    color: #bc13fe;
+    font-size: 1.18rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #bc13fe;
+}
+.features-section {
+    max-width: 600px;
+    margin: 0 auto 36px auto;
+    background: rgba(20, 25, 40, 0.93);
+    border-radius: 18px;
+    box-shadow: 0 2px 16px #00f3ff22;
+    padding: 24px 24px 16px 24px;
+    color: #fff;
+    text-align: center;
+}
+.features-section h2 {
+    color: #00f3ff;
+    margin-bottom: 12px;
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px #00f3ff;
+}
+.features-section p {
+    color: #b2c2e0;
+    margin-bottom: 18px;
+    font-size: 1.07em;
+}
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.features-list li {
+    flex: 1 1 220px;
+    background: rgba(44, 53, 100, 0.85);
+    border-radius: 10px;
+    padding: 14px 10px;
+    margin: 0;
+    color: #00f3ff;
+    font-size: 1em;
+    box-shadow: 0 0 8px #bc13fe33;
+    transition: background 0.3s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+.features-list li i {
+    color: #bc13fe;
+    font-size: 1.2em;
+    margin-right: 6px;
+}
+.features-list li:hover {
+    background: #23283a;
+    color: #bc13fe;
+}
+
+/* ========== Calculator Container ========== */
 .calculator-container {
     max-width: 430px;
     width: 97vw;
     margin: 40px auto 24px auto;
-    background: rgba(30, 40, 60, 0.96);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow), 0 0 36px 0 var(--accent2) inset;
+    background: rgba(30,40,60,0.97);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.28), 0 0 36px 0 #bc13fe22 inset;
     padding: 24px 16px 18px 16px;
     position: relative;
     backdrop-filter: blur(14px);
-    animation: calcFadeIn 1s cubic-bezier(.45, .03, .52, .96);
+    animation: calcFadeIn 1s cubic-bezier(.45,.03,.52,.96);
 }
-
 @keyframes calcFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.97) translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+    from { opacity: 0; transform: scale(0.97) translateY(30px);}
+    to { opacity: 1; transform: scale(1) translateY(0);}
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 18px;
-}
-
-.logo {
-    font-size: 2.1rem;
-    font-weight: bold;
-    color: var(--accent);
-    letter-spacing: 1px;
-    margin-bottom: 2px;
-    text-shadow: 0 0 18px var(--accent), 0 0 2px #fff;
-    animation: neonGlow 2.5s infinite alternate;
-}
-
-@keyframes neonGlow {
-    from {
-        text-shadow: 0 0 10px var(--accent), 0 0 2px #fff;
-    }
-    to {
-        text-shadow: 0 0 24px var(--accent2), 0 0 10px var(--accent);
-    }
-}
-
-.creator {
-    color: var(--accent2);
-    font-size: 1rem;
-    margin-bottom: 4px;
-    text-shadow: 0 0 8px var(--accent2);
-    letter-spacing: 1px;
-}
-
+/* ========== Tabs ========== */
 .tabs {
     display: flex;
     gap: 0.5rem;
     margin-bottom: 18px;
     justify-content: center;
 }
-
 .tab {
     flex: 1;
     padding: 0.7rem 0.2rem;
-    background: var(--button-bg);
+    background: #23283a;
     border: none;
     border-radius: 10px;
-    color: var(--accent);
+    color: #00f3ff;
     font-weight: 500;
     cursor: pointer;
     font-size: 1.05rem;
@@ -109,50 +148,38 @@ body {
     transition: all 0.25s;
     outline: none;
     border-bottom: 2.5px solid transparent;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
     position: relative;
     z-index: 1;
 }
-
 .tab.active {
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    background: linear-gradient(90deg, #00f3ff, #bc13fe);
     color: #181c2c;
     font-weight: bold;
-    box-shadow: 0 0 15px var(--accent);
-    border-bottom: 2.5px solid var(--accent2);
+    box-shadow: 0 0 15px #00f3ff;
+    border-bottom: 2.5px solid #bc13fe;
     transform: scale(1.06);
     animation: tabPulse 1.5s infinite alternate;
 }
-
 @keyframes tabPulse {
-    from {
-        box-shadow: 0 0 15px var(--accent);
-    }
-    to {
-        box-shadow: 0 0 30px var(--accent2);
-    }
+    from { box-shadow: 0 0 15px #00f3ff;}
+    to { box-shadow: 0 0 30px #bc13fe;}
 }
 
+/* ========== Calculator View ========== */
 .calculator-view {
     display: none;
     animation: fadeIn 0.4s;
 }
-
 .calculator-view.active {
     display: block;
 }
-
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
 }
 
+/* ========== Display and Subscript Preview ========== */
 .display {
     background: #10131c;
     border-radius: 14px;
@@ -162,7 +189,6 @@ body {
     position: relative;
     min-height: 70px;
 }
-
 .history {
     min-height: 18px;
     color: #b0bec5;
@@ -174,19 +200,17 @@ body {
     height: 18px;
     transition: color 0.2s;
 }
-
 .history sub {
-    color: var(--accent2);
+    color: #bc13fe;
     font-size: 0.95em;
     letter-spacing: 1px;
-    text-shadow: 0 0 8px var(--accent2);
+    text-shadow: 0 0 8px #bc13fe;
 }
-
 .current-input {
     width: 100%;
     background: none;
     border: none;
-    color: var(--text);
+    color: #f8f8f8;
     font-size: 2.2rem;
     text-align: right;
     font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
@@ -195,28 +219,27 @@ body {
     padding: 0.2em 0;
     background: transparent;
     transition: color 0.18s;
-    text-shadow: 0 0 8px var(--accent), 0 0 2px #fff;
+    text-shadow: 0 0 8px #00f3ff, 0 0 2px #fff;
 }
 
+/* ========== Buttons ========== */
 .buttons-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     margin-bottom: 10px;
 }
-
 .buttons-grid.numbers {
     grid-template-columns: repeat(4, 1fr);
     margin-top: 18px;
 }
-
 button {
     padding: 1.1rem 0.2rem;
     font-size: 1.23rem;
     border: none;
     border-radius: 10px;
-    background: var(--button-bg);
-    color: var(--text);
+    background: #23283a;
+    color: #f8f8f8;
     cursor: pointer;
     transition: background 0.22s, color 0.18s, transform 0.12s, box-shadow 0.18s;
     box-shadow: 0 2px 8px #00f3ff22;
@@ -226,82 +249,61 @@ button {
     position: relative;
     overflow: hidden;
 }
-
 button:active {
     transform: scale(0.95);
-    box-shadow: 0 0 10px var(--accent2);
+    box-shadow: 0 0 10px #bc13fe;
 }
-
 .btn-number {
     background: #29304a;
-    color: var(--accent);
+    color: #00f3ff;
     font-weight: bold;
 }
-
 .btn-number:hover {
     background: #39405a;
-    color: var(--accent2);
+    color: #bc13fe;
 }
-
-.btn-operator,
-.btn-scientific,
-.btn-eng {
+.btn-operator, .btn-scientific, .btn-eng {
     background: #23283a;
-    color: var(--accent2);
+    color: #bc13fe;
     font-weight: bold;
 }
-
-.btn-operator:hover,
-.btn-scientific:hover,
-.btn-eng:hover {
+.btn-operator:hover, .btn-scientific:hover, .btn-eng:hover {
     background: #23283a;
-    color: var(--accent);
+    color: #00f3ff;
 }
-
 .equals {
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    background: linear-gradient(90deg, #00f3ff, #bc13fe);
     color: #181c2c;
     font-weight: bold;
-    box-shadow: 0 0 10px var(--accent);
+    box-shadow: 0 0 10px #00f3ff;
     animation: eqPulse 1.2s infinite alternate;
 }
-
 @keyframes eqPulse {
-    from {
-        box-shadow: 0 0 10px var(--accent);
-    }
-    to {
-        box-shadow: 0 0 18px var(--accent2);
-    }
+    from { box-shadow: 0 0 10px #00f3ff;}
+    to { box-shadow: 0 0 18px #bc13fe;}
 }
-
 .equals:hover {
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    background: linear-gradient(90deg, #bc13fe, #00f3ff);
 }
-
 .btn-special {
-    background: var(--special-bg);
+    background: #ff5252;
     color: #fff;
     font-weight: bold;
 }
-
 .btn-special:hover {
-    background: var(--special-hover);
+    background: #ff867f;
 }
 
-
 /* Ripple effect */
-
 .ripple {
     position: absolute;
-    background: rgba(0, 243, 255, 0.18);
+    background: rgba(0,243,255,0.18);
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
     animation: rippleEffect 0.6s linear;
     z-index: 1;
 }
-
 @keyframes rippleEffect {
     from {
         width: 0;
@@ -315,37 +317,32 @@ button:active {
     }
 }
 
-
-/* Number Base Converter */
-
+/* ========== Number Base Converter ========== */
 .converter-row {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 4px;
 }
-
 .converter-row label {
     width: 40px;
     text-align: right;
     font-weight: bold;
     font-size: 0.9em;
-    color: var(--accent);
+    color: #00f3ff;
 }
-
 .converter-input {
     flex: 1;
     background: #23283a;
     border: 1px solid #333;
-    color: var(--text);
+    color: #f8f8f8;
     padding: 4px 10px;
     border-radius: 5px;
     font-family: 'Fira Mono', monospace;
     font-size: 1em;
 }
-
 .btn-convert-small {
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    background: linear-gradient(90deg, #00f3ff, #bc13fe);
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
@@ -355,11 +352,9 @@ button:active {
     font-size: 1em;
     transition: background 0.22s;
 }
-
 .btn-convert-small:hover {
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    background: linear-gradient(90deg, #bc13fe, #00f3ff);
 }
-
 .number-converter {
     background: #181c2c;
     border-radius: 10px;
@@ -368,89 +363,88 @@ button:active {
     border: 1px solid #23283a;
 }
 
+/* ========== Converter Section ========== */
 .conversion-types {
     margin-bottom: 1.2rem;
 }
-
 .conversion-interface {
     display: grid;
     gap: 1rem;
 }
-
-.conversion-input,
-.conversion-output {
+.conversion-input, .conversion-output {
     display: flex;
     gap: 1rem;
 }
-
-.conversion-input input,
-.conversion-output input {
+.conversion-input input, .conversion-output input {
     flex: 2;
     padding: 0.7rem;
     background: #23283a;
-    border: 1px solid var(--accent2);
-    color: var(--text);
+    border: 1px solid #bc13fe;
+    color: #f8f8f8;
     border-radius: 8px;
     font-size: 1.1em;
 }
-
 select {
     width: 100%;
     padding: 0.7rem;
     background: #181c2c;
-    border: 1px solid var(--accent2);
-    color: var(--text);
+    border: 1px solid #bc13fe;
+    color: #f8f8f8;
     border-radius: 8px;
     font-size: 1em;
     margin-bottom: 0.5rem;
 }
-
 .btn-convert {
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    background: linear-gradient(90deg, #00f3ff, #bc13fe);
     color: #23283a;
     font-weight: bold;
     padding: 1rem;
     border-radius: 12px;
     margin-top: 0.8rem;
-    box-shadow: 0 4px 0 rgba(188, 19, 254, 0.3), 0 0 10px var(--accent2);
+    box-shadow: 0 4px 0 #bc13fe33, 0 0 10px #bc13fe;
     transition: background 0.3s, transform 0.15s;
-    border: 1px solid var(--accent2);
+    border: 1px solid #bc13fe;
     letter-spacing: 1px;
 }
-
 .btn-convert:hover {
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    background: linear-gradient(90deg, #bc13fe, #00f3ff);
 }
 
+/* ========== Footer ========== */
 footer {
     text-align: center;
     margin-top: 32px;
-    color: var(--accent);
+    color: #00f3ff;
     font-size: 1.1em;
     letter-spacing: 1px;
     padding: 18px 0 8px 0;
     background: transparent;
-    text-shadow: 0 0 8px var(--accent), 0 0 2px var(--accent2);
+    text-shadow: 0 0 8px #00f3ff, 0 0 2px #bc13fe;
     border-radius: 0 0 24px 24px;
     animation: footerGlow 2.5s infinite alternate;
 }
-
 @keyframes footerGlow {
-    from {
-        text-shadow: 0 0 8px var(--accent), 0 0 2px var(--accent2);
-    }
-    to {
-        text-shadow: 0 0 16px var(--accent2), 0 0 6px var(--accent);
-    }
+    from { text-shadow: 0 0 8px #00f3ff, 0 0 2px #bc13fe;}
+    to { text-shadow: 0 0 16px #bc13fe, 0 0 6px #00f3ff;}
 }
 
+/* ========== Responsive ========== */
+@media (max-width: 700px) {
+    .features-section {
+        padding: 16px 6px 10px 6px;
+    }
+    .features-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 @media (max-width: 600px) {
     .calculator-container {
         max-width: 99vw;
         margin: 12px auto;
         padding: 12px 2px 12px 2px;
     }
-    .logo {
+    .logo, .hero {
         font-size: 1.3rem;
     }
     .tabs {
